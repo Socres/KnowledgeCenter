@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "KnowledgeCenter.Azure", "src\KnowledgeCenter.Azure\KnowledgeCenter.Azure.ccproj", "{E06CB21C-15A1-4720-B579-39B99EF9D11E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{30C5DEE7-E513-4DBC-8760-3B68B166D1EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9FF75A97-EBFA-4DAF-8655-8D79444C335D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.1 Presentation", "1.1 Presentation", "{B375DBAC-AE95-4252-A3AA-F48449923901}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.2 Domain", "1.2 Domain", "{80F67136-5956-4B68-9B84-543663FD3946}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.3 Data", "1.3 Data", "{AD7C6C76-77DE-4AA3-94BC-D8D5512A8513}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.1 Framework", "2.1 Framework", "{AFB37042-40CB-494A-ABB1-5C7EC6027F8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnowledgeCenter.Framework", "src\Framework\KnowledgeCenter.Framework\KnowledgeCenter.Framework.csproj", "{2299958F-1A2F-4E09-938A-535412665586}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9.0 Solution Items", "9.0 Solution Items", "{0822E065-2328-4DE3-B0BA-9C2677AC1908}"
+	ProjectSection(SolutionItems) = preProject
+		src\Solution Items\CommonAssemblyInfo.cs = src\Solution Items\CommonAssemblyInfo.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnowledgeCenter.Data", "src\Data\KnowledgeCenter.Data\KnowledgeCenter.Data.csproj", "{4438B3F4-9342-455F-B035-EE40D946CCBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnowledgeCenter.Data.Core", "src\Data\KnowledgeCenter.Data.Core\KnowledgeCenter.Data.Core.csproj", "{540CE000-4D44-4DA0-9B8F-EE5F6D3BD416}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnowledgeCenter.Domain", "src\Domain\KnowledgeCenter.Domain\KnowledgeCenter.Domain.csproj", "{1A526314-DDEB-47AB-AC9C-1EC31D2AA84F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnowledgeCenter.Domain.Core", "src\Domain\KnowledgeCenter.Domain.Core\KnowledgeCenter.Domain.Core.csproj", "{DDF8C58F-5FAF-4C70-B27C-62EE625465D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnowledgeCenter.Web", "src\Presentation\KnowledgeCenter.Web\KnowledgeCenter.Web.csproj", "{E2719906-B3D5-4CE2-B88C-A84947A80F62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E06CB21C-15A1-4720-B579-39B99EF9D11E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E06CB21C-15A1-4720-B579-39B99EF9D11E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E06CB21C-15A1-4720-B579-39B99EF9D11E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E06CB21C-15A1-4720-B579-39B99EF9D11E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2299958F-1A2F-4E09-938A-535412665586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2299958F-1A2F-4E09-938A-535412665586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2299958F-1A2F-4E09-938A-535412665586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2299958F-1A2F-4E09-938A-535412665586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4438B3F4-9342-455F-B035-EE40D946CCBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4438B3F4-9342-455F-B035-EE40D946CCBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4438B3F4-9342-455F-B035-EE40D946CCBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4438B3F4-9342-455F-B035-EE40D946CCBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{540CE000-4D44-4DA0-9B8F-EE5F6D3BD416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{540CE000-4D44-4DA0-9B8F-EE5F6D3BD416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{540CE000-4D44-4DA0-9B8F-EE5F6D3BD416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{540CE000-4D44-4DA0-9B8F-EE5F6D3BD416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A526314-DDEB-47AB-AC9C-1EC31D2AA84F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A526314-DDEB-47AB-AC9C-1EC31D2AA84F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A526314-DDEB-47AB-AC9C-1EC31D2AA84F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A526314-DDEB-47AB-AC9C-1EC31D2AA84F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDF8C58F-5FAF-4C70-B27C-62EE625465D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF8C58F-5FAF-4C70-B27C-62EE625465D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDF8C58F-5FAF-4C70-B27C-62EE625465D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF8C58F-5FAF-4C70-B27C-62EE625465D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2719906-B3D5-4CE2-B88C-A84947A80F62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2719906-B3D5-4CE2-B88C-A84947A80F62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2719906-B3D5-4CE2-B88C-A84947A80F62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2719906-B3D5-4CE2-B88C-A84947A80F62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E06CB21C-15A1-4720-B579-39B99EF9D11E} = {30C5DEE7-E513-4DBC-8760-3B68B166D1EB}
+		{B375DBAC-AE95-4252-A3AA-F48449923901} = {30C5DEE7-E513-4DBC-8760-3B68B166D1EB}
+		{80F67136-5956-4B68-9B84-543663FD3946} = {30C5DEE7-E513-4DBC-8760-3B68B166D1EB}
+		{AD7C6C76-77DE-4AA3-94BC-D8D5512A8513} = {30C5DEE7-E513-4DBC-8760-3B68B166D1EB}
+		{AFB37042-40CB-494A-ABB1-5C7EC6027F8D} = {30C5DEE7-E513-4DBC-8760-3B68B166D1EB}
+		{2299958F-1A2F-4E09-938A-535412665586} = {AFB37042-40CB-494A-ABB1-5C7EC6027F8D}
+		{0822E065-2328-4DE3-B0BA-9C2677AC1908} = {30C5DEE7-E513-4DBC-8760-3B68B166D1EB}
+		{4438B3F4-9342-455F-B035-EE40D946CCBD} = {AD7C6C76-77DE-4AA3-94BC-D8D5512A8513}
+		{540CE000-4D44-4DA0-9B8F-EE5F6D3BD416} = {AD7C6C76-77DE-4AA3-94BC-D8D5512A8513}
+		{1A526314-DDEB-47AB-AC9C-1EC31D2AA84F} = {80F67136-5956-4B68-9B84-543663FD3946}
+		{DDF8C58F-5FAF-4C70-B27C-62EE625465D6} = {80F67136-5956-4B68-9B84-543663FD3946}
+		{E2719906-B3D5-4CE2-B88C-A84947A80F62} = {B375DBAC-AE95-4252-A3AA-F48449923901}
+	EndGlobalSection
+EndGlobal
