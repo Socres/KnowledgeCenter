@@ -30,19 +30,50 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\Solution Items\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Context\KnowledgeCenterContext.cs" />
+    <Compile Include="Context\KnowledgeCenterContextConfiguration.cs" />
+    <Compile Include="Context\KnowledgeCenterContextDbInitializer.cs" />
+    <Compile Include="Migrations\201412311206304_InitialCreate.cs" />
+    <Compile Include="Migrations\201412311206304_InitialCreate.Designer.cs">
+      <DependentUpon>201412311206304_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MigrationConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KnowledgeCenter.Data.Core\KnowledgeCenter.Data.Core.csproj">
+      <Project>{540CE000-4D44-4DA0-9B8F-EE5F6D3BD416}</Project>
+      <Name>KnowledgeCenter.Data.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201412311206304_InitialCreate.resx">
+      <DependentUpon>201412311206304_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

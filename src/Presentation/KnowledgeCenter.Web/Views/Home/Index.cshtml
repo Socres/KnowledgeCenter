@@ -1,0 +1,30 @@
+﻿@section scripts{
+    @Scripts.Render("~/bundles/jsangular")
+
+    <!-- Bootstrapping -->
+    <script src="@(Url.Fingerprint("app/app.js"))"></script>
+    <script src="@(Url.Fingerprint(string.Format(@"app/{0}/configDataProvider", Culture)))"></script>
+
+    <script src="@(Url.Fingerprint("app/infrastructure/config.js"))"></script>
+    <script src="@(Url.Fingerprint("app/infrastructure/config.exceptionHandler.js"))"></script>
+    <script src="@(Url.Fingerprint("app/infrastructure/config.route.js"))"></script>
+
+    <!-- common Modules -->
+    <script src="@(Url.Fingerprint("app/infrastructure/common/common.js"))"></script>
+    <script src="@(Url.Fingerprint("app/infrastructure/common/interfaces.js"))"></script>
+    <script src="@(Url.Fingerprint("app/infrastructure/common/logger.js"))"></script>
+
+    <!-- Angular App -->
+    @Scripts.Render("~/bundles/jsangularApp")
+}
+
+<div data-ng-app="knowledgeCenterApp">
+    <div data-ng-hide="appStarted">
+        @Html.Partial("_splash")
+    </div>
+    <div data-ng-show="appStarted">
+        <div data-ng-cloak>
+            <div data-ng-include="'app/views/@(Culture)/shell/shell'"></div>
+        </div>
+    </div>
+</div>

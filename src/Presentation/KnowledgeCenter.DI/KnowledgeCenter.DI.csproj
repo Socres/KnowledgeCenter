@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A84CA1E1-91B2-4336-B21A-7C333D66A924}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KnowledgeCenter.DI</RootNamespace>
+    <AssemblyName>KnowledgeCenter.DI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Solution Items\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="IoCBuilder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\KnowledgeCenter.Data.Core\KnowledgeCenter.Data.Core.csproj">
+      <Project>{540ce000-4d44-4da0-9b8f-ee5f6d3bd416}</Project>
+      <Name>KnowledgeCenter.Data.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\KnowledgeCenter.Data\KnowledgeCenter.Data.csproj">
+      <Project>{4438b3f4-9342-455f-b035-ee40d946ccbd}</Project>
+      <Name>KnowledgeCenter.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\KnowledgeCenter.Domain.Core\KnowledgeCenter.Domain.Core.csproj">
+      <Project>{ddf8c58f-5faf-4c70-b27c-62ee625465d6}</Project>
+      <Name>KnowledgeCenter.Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\KnowledgeCenter.Domain\KnowledgeCenter.Domain.csproj">
+      <Project>{1a526314-ddeb-47ab-ac9c-1ec31d2aa84f}</Project>
+      <Name>KnowledgeCenter.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\KnowledgeCenter.Framework\KnowledgeCenter.Framework.csproj">
+      <Project>{2299958f-1a2f-4e09-938a-535412665586}</Project>
+      <Name>KnowledgeCenter.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

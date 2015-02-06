@@ -1,0 +1,10 @@
+﻿<section data-ng-controller="nav as vm">
+    <ul class="nav navbar-nav">
+        <li data-ng-repeat="r in vm.navRoutes" data-ng-class="{ active: vm.isCurrent(r) }">
+            <a href="{{r.url}}" class="hint">
+                <i data-ng-class="'{{r.titleIconCss}}'"></i>
+                <div class="hint-content classic">{{r.title}}</div>
+            </a>
+        </li>
+    </ul>
+</section>

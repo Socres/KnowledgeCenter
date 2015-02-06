@@ -13,3 +13,5 @@ _ReSharper.*
 *.userprefs
 *.*sdf
 /*.vspx
+[Aa]pp/*/*.js
+[Aa]pp/*/*.js.map

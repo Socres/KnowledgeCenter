@@ -32,17 +32,25 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\Solution Items\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\KnowledgeBaseService.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\KnowledgeCenter.Data.Core\KnowledgeCenter.Data.Core.csproj">
+      <Project>{540CE000-4D44-4DA0-9B8F-EE5F6D3BD416}</Project>
+      <Name>KnowledgeCenter.Data.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KnowledgeCenter.Domain.Core\KnowledgeCenter.Domain.Core.csproj">
+      <Project>{DDF8C58F-5FAF-4C70-B27C-62EE625465D6}</Project>
+      <Name>KnowledgeCenter.Domain.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

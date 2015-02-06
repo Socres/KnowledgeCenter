@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@(string.IsNullOrWhiteSpace(ViewBag.Title) ? string.Empty : (ViewBag.Title + "- ") + ViewBag.ApplicationName)</title>
+    @Styles.Render("~/Content/cssbootstrap")
+    @Styles.Render("~/Content/cssmain")
+    @RenderSection("styles", false)
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jsjquery")
+    @Scripts.Render("~/bundles/jsjquerymigrate")
+    @Scripts.Render("~/bundles/jsextlibs")
+    @RenderSection("scripts", false)
+</body>
+</html>

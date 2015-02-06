@@ -1,0 +1,37 @@
+﻿<div data-ng-controller="shell as vm" class="page-host">
+    <div id="splash-page" data-ng-show="vm.showSplash"
+         class="dissolve-animation">
+        <div class="page-splash">
+            <div class="page-splash-message"
+                 data-ng-bind="vm.applicationName">
+            </div>
+            <div class="progress progress-striped active page-progress-bar">
+                <div class="bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header">
+        <header>
+            <div data-ng-include="'app/views/@(Culture)/shell/header'"></div>
+        </header>
+    </div>
+    <div class="left-nav">
+        <div data-ng-include="'app/views/@(Culture)/shell/nav'"></div>
+    </div>
+    <div class="main">
+        <section data-ng-cloak class="container">
+            <div data-ng-show="vm.isBusy" class="page-splash dissolve-animation">
+                <div class="page-splash-message page-splash-message-subtle">{{vm.busyMessage}}</div>
+            </div>
+
+            <div data-ui-view class="shuffle-animation"></div>
+
+        </section>
+    </div>
+    <div class="footer">
+        <footer>
+            <div data-ng-include="'app/views/@(Culture)/shell/footer'"></div>
+        </footer>
+    </div>
+</div>

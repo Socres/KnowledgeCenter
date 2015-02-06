@@ -1,0 +1,36 @@
+﻿<nav class="navbar navbar-knowledgeCenter navbar-fixed-top" role="navigation">
+    <div class="navbar-inner">
+        <input type="checkbox" class="debug" title="Debug" data-ng-model="vm.debugEnabled" data-ng-show="vm.canEnableDebug" data-ng-change="vm.debugChanged()" />
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#kcNavbarCollapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="loaderWhenCollapsed navbar-toggle" data-ng-class="{ active: vm.isBusy }">
+                <i class="fa-spinner fa fa-2x fa-spin"></i>
+            </div>
+            <a class="navbar-brand" href="~/@(Culture)">
+                <i class="fa fa-home"></i>
+                <span data-ng-bind="vm.applicationName"></span>
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="kcNavbarCollapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form class="navbar-search" data-ng-show="vm.canSearch" data-ng-submit="vm.sendSearchEvent()">
+                        <input type="search" class="search-query" accesskey="S" data-ng-model="vm.lastSearchValue">
+                        <a href="#" class="search-clear" data-ng-click="vm.clearSearchEvent()"><i class="fa fa-times"></i></a>
+                    </form>
+                </li>
+                <li>
+                    <div class="loader" data-ng-class="{ active: vm.isBusy }">
+                        <i class="fa-spinner fa fa-2x fa-spin"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
