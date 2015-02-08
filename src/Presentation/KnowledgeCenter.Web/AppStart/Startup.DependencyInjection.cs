@@ -6,7 +6,8 @@
     using KnowledgeCenter.Framework.DependencyInjection;
     using KnowledgeCenter.Framework.Web.DependencyInjection;
     using KnowledgeCenter.Web.Infrastructure.ClientConfiguration;
-    using KnowledgeCenter.Web.Infrastructure.JsResources;
+    using KnowledgeCenter.Web.Infrastructure.ClientConfiguration.ClientRoutes;
+    using KnowledgeCenter.Web.Infrastructure.ClientConfiguration.JsResources;
     using Owin;
 
     /// <summary>
@@ -24,6 +25,7 @@
             var ioCBuilder = new IoCBuilder();
             ioCBuilder.Initialize(IoC.Instance);
 
+            IoC.Instance.Register<IClientRouteProvider, ClientRouteProvider>().PerLifetimeScope();
             IoC.Instance.Register<IJsResourcesProvider, JsResourcesProvider>().PerLifetimeScope();
             IoC.Instance.Register<IClientConfigProvider, ClientConfigProvider>().PerLifetimeScope();
 

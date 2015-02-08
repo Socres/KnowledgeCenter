@@ -1,4 +1,4 @@
-﻿namespace KnowledgeCenter.Web.Infrastructure.JsResources
+﻿namespace KnowledgeCenter.Web.Infrastructure.ClientConfiguration.JsResources
 {
     using System.Collections.Generic;
 

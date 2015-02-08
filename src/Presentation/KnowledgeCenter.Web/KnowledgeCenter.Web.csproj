@@ -991,6 +991,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\Solution Items\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="AppStart\Startup.Bundles.cs" />
     <Compile Include="AppStart\Startup.cs" />
     <Compile Include="AppStart\Startup.DependencyInjection.cs" />
@@ -1003,9 +1006,14 @@
     <Compile Include="Extensions\UrlHelperExtension.cs" />
     <Compile Include="Infrastructure\ClientConfiguration\ClientConfig.cs" />
     <Compile Include="Infrastructure\ClientConfiguration\ClientConfigProvider.cs" />
+    <Compile Include="Infrastructure\ClientConfiguration\ClientRoutes\ClientRoute.cs" />
+    <Compile Include="Infrastructure\ClientConfiguration\ClientRoutes\ClientRouteProvider.cs" />
+    <Compile Include="Infrastructure\ClientConfiguration\ClientRoutes\IClientRouteConfig.cs" />
+    <Compile Include="Infrastructure\ClientConfiguration\ClientRoutes\IClientRouteProvider.cs" />
+    <Compile Include="Infrastructure\ClientConfiguration\ClientRoutes\Routes\KnowledgeBaseClientRoutes.cs" />
     <Compile Include="Infrastructure\ClientConfiguration\IClientConfigProvider.cs" />
-    <Compile Include="Infrastructure\JsResources\IJsResourcesProvider.cs" />
-    <Compile Include="Infrastructure\JsResources\JsResourcesProvider.cs" />
+    <Compile Include="Infrastructure\ClientConfiguration\JsResources\IJsResourcesProvider.cs" />
+    <Compile Include="Infrastructure\ClientConfiguration\JsResources\JsResourcesProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\JsResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1016,6 +1024,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>JsResources.nl-NL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources,nl-NL.Designer.cs">
+      <DependentUpon>Resources,nl-NL.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1048,6 +1066,14 @@
     <EmbeddedResource Include="Properties\JsResources.nl-NL.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>JsResources.nl-NL.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources,nl-NL.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources,nl-NL.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

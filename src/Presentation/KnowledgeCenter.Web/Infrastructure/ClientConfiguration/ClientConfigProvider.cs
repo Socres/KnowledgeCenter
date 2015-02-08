@@ -1,7 +1,7 @@
 ﻿namespace KnowledgeCenter.Web.Infrastructure.ClientConfiguration
 {
     using System.Threading;
-    using KnowledgeCenter.Web.Infrastructure.JsResources;
+    using KnowledgeCenter.Web.Infrastructure.ClientConfiguration.JsResources;
 
     public class ClientConfigProvider : IClientConfigProvider
     {
