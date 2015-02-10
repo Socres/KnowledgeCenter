@@ -2,6 +2,7 @@
 {
     using System.Linq;
     using System.Text;
+    using System.Threading;
     using System.Web.Mvc;
     using KnowledgeCenter.Framework.Extensions;
     using KnowledgeCenter.Web.Infrastructure.ClientConfiguration;
@@ -44,7 +45,10 @@
         [OutputCache(CacheProfile = "outputCacheNoStore")]
         public ActionResult GetConfigData()
         {
-            var config = _clientConfigProvider.GetConfiguration();
+            var culture = Thread.CurrentThread.CurrentUICulture.Name;
+            var baseTemplateUrl = "app/views/" + culture;
+            var config = _clientConfigProvider.GetConfiguration(baseTemplateUrl, culture);
+
             var sb = new StringBuilder();
             sb.Append("(function () {");
             sb.Append("    'use strict';");

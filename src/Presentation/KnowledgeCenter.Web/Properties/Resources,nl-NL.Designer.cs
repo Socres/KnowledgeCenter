@@ -61,6 +61,33 @@ namespace KnowledgeCenter.Web.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to KC.
+        /// </summary>
+        public static string Application_DocumentTitle {
+            get {
+                return ResourceManager.GetString("Application_DocumentTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Knowledge Center.
+        /// </summary>
+        public static string Application_Name {
+            get {
+                return ResourceManager.GetString("Application_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forum.
+        /// </summary>
+        public static string ClientRoute_Forum_Caption {
+            get {
+                return ResourceManager.GetString("ClientRoute_Forum_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Knowledge Base.
         /// </summary>
         public static string ClientRoute_KnowledgeBase_Caption {

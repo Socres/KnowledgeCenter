@@ -16,19 +16,30 @@
         }
 
         /// <summary>
-        /// Gets or sets the Route.
+        /// Gets or sets the name.
         /// </summary>
-        public string Route { get; set; }
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Url.
+        /// </summary>
+        public string Url
+        {
+            get { return "/" + Name; }
+        }
+
+        /// <summary>
+        /// Gets or sets the Href.
+        /// </summary>
+        public string Href
+        {
+            get { return "#/" + Name; }
+        }
 
         /// <summary>
         /// Gets or sets the template url.
         /// </summary>
         public string TemplateUrl { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the navigation parent.
@@ -43,12 +54,12 @@
         /// <summary>
         /// Gets or sets the caption text used far page title.
         /// </summary>
-        public string CaptionText { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Gets or sets the caption HTML user for Navigation bar.
         /// </summary>
-        public string CaptionIconCssClass { get; set; }
+        public string TitleIconCss { get; set; }
 
         /// <summary>
         /// Gets or sets the child routes.
@@ -58,30 +69,27 @@
         /// <summary>
         /// Adds the child route.
         /// </summary>
-        /// <param name="route">The route.</param>
-        /// <param name="templateUrl">The template URL.</param>
         /// <param name="name">The name.</param>
-        /// <param name="captionText">The caption text.</param>
-        /// <param name="captionIconCssClass">The caption icon CSS class.</param>
+        /// <param name="templateUrl">The template URL.</param>
+        /// <param name="title">The title.</param>
+        /// <param name="titleIconCssClass">The title icon CSS class.</param>
         /// <returns>
         /// The new ChildRoute
         /// </returns>
         public ClientRoute AddChildRoute(
-            string route,
-            string templateUrl,
             string name,
-            string captionText,
-            string captionIconCssClass)
+            string templateUrl,
+            string title,
+            string titleIconCssClass)
         {
             var clientRoute = new ClientRoute
             {
                 Visible = false,
-                Route = route,
-                TemplateUrl = templateUrl,
                 Name = name,
+                TemplateUrl = templateUrl,
                 NavigationParentName = NavigationParentName,
-                CaptionText = captionText,
-                CaptionIconCssClass = captionIconCssClass
+                Title = title,
+                TitleIconCss = titleIconCssClass
             };
             ChildRoutes.Add(clientRoute);
 

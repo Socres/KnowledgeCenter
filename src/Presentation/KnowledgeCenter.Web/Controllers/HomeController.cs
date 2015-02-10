@@ -2,6 +2,7 @@
 {
     using System.Web.Mvc;
     using KnowledgeCenter.Web.Infrastructure.ClientConfiguration;
+    using KnowledgeCenter.Web.Properties;
 
     public class HomeController : Controller
     {
@@ -22,7 +23,7 @@
         /// <returns></returns>
         public ActionResult Index()
         {
-            ViewBag.ApplicationName = _clientConfigProvider.GetConfiguration().ApplicationName;
+            ViewBag.ApplicationName = Resources.Application_Name;
             return View();
         }
     }

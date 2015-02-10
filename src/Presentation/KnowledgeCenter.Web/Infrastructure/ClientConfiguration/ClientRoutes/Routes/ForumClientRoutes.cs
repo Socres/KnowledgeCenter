@@ -4,16 +4,16 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Provides information to configure client side routing for <see cref="KnowledgeBaseClientRoutes"/>.
+    /// Provides information to configure client side routing for <see cref="ForumClientRoutes"/>.
     /// </summary>
-    public class KnowledgeBaseClientRoutes : IClientRouteConfig
+    public class ForumClientRoutes : IClientRouteConfig
     {
         /// <summary>
         /// Gets the order of the routing information.
         /// </summary>
         public int Order
         {
-            get { return 1; }
+            get { return 2; }
         }
 
         /// <summary>
@@ -27,11 +27,11 @@
 
                 routes.Add(new ClientRoute
                 {
-                    Name = "KnowledgeBase",
-                    TemplateUrl = "knowledgeBase/main",
+                    Name = "Forum",
+                    TemplateUrl = "Forum/main",
                     Visible = true,
-                    Title = Resources.ClientRoute_KnowledgeBase_Caption,
-                    TitleIconCss = @"fa fa-lightbulb-o"
+                    Title = Resources.ClientRoute_Forum_Caption,
+                    TitleIconCss = @"fa fa-question"
                 });
 
                 return routes;

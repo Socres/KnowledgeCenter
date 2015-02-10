@@ -5,7 +5,9 @@ namespace KnowledgeCenter.Web.Infrastructure.ClientConfiguration
         /// <summary>
         /// Gets the configuration for a client.
         /// </summary>
+        /// <param name="baseTemplateUrl">The base template URL.</param>
+        /// <param name="culture">The culture.</param>
         /// <returns></returns>
-        ClientConfig GetConfiguration();
+        ClientConfig GetConfiguration(string baseTemplateUrl, string culture);
     }
 }

@@ -1,6 +1,7 @@
 ﻿namespace KnowledgeCenter.Framework.Extensions
 {
     using Newtonsoft.Json;
+    using Newtonsoft.Json.Serialization;
 
     public static class ObjectExtensions
     {
@@ -11,7 +12,11 @@
         /// <returns>The JSON formatted value.</returns>
         public static string ToJson(this object value)
         {
-            return JsonConvert.SerializeObject(value);
+            return JsonConvert.SerializeObject(value,
+                new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                });
         }
     }
 }

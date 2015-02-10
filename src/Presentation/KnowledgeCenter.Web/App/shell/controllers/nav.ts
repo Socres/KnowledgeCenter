@@ -26,13 +26,13 @@
         }
 
         public isCurrent(route: App.INavigationItem): string {
-            if (!route.name || !this.$state.current || !this.$state.current.data || !this.$state.current.data.name) {
+            if (!route.name || !this.$state.current || !this.$state.current.name) {
                 return "";
             }
 
             var menuName: string = route.name;
-            var routeName: string = this.$state.current.data.name;
-            if (this.$state.current.data.navigationParentName) {
+            var routeName: string = this.$state.current.name;
+            if (this.$state.current.data && this.$state.current.data.navigationParentName) {
                 routeName = this.$state.current.data.navigationParentName;
             }
             return routeName === menuName ? "current" : "";

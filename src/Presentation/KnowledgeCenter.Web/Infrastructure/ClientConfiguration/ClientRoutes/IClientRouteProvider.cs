@@ -11,6 +11,8 @@
         /// Gets all types implementing IClientRouteConfig,
         /// creates instances for them and adds their routes to the result.
         /// </summary>
-        IEnumerable<ClientRoute> GetClientRoutes();
+        /// <param name="baseTemplateUrl">The base template URL.</param>
+        /// <returns></returns>
+        IEnumerable<ClientRoute> GetClientRoutes(string baseTemplateUrl);
     }
 }

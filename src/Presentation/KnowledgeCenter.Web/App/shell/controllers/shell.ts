@@ -57,6 +57,11 @@
                     this.toggleSpinner(false);
                 });
 
+            this.$rootScope.$on("$stateChangeStart",
+                (): void=> {
+                    this.common.logger.logSuccess("$stateChangeStart", null, controllerId);
+                });
+
             // register for controllerActivating event
             this.$rootScope.$on(this.config.events.controllerActivating,
                 (e: ng.IAngularEvent, data: string): void=> {

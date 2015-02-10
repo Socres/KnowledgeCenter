@@ -64,28 +64,23 @@
         "configDataProvider", (configDataProvider: any) => {
             var configData: any = configDataProvider.$get();
 
-            function toLowerFirstChar(value: string): string {
-                return value[0].toLowerCase() + value.substr(1);
-            };
-
             /*
             * Recursively merge properties of two objects 
             */
             function MergeRecursive(obj1: Object, obj2: Object) {
                 for (var propertyName in obj2) {
                     if (obj2.hasOwnProperty(propertyName)) {
-                        var lowerPropertName = toLowerFirstChar(propertyName);
                         try {
                             // property in destination object set; update its value.
                             if (obj2[propertyName].constructor === Object) {
-                                obj1[lowerPropertName] = MergeRecursive(obj1[lowerPropertName], obj2[propertyName]);
+                                obj1[propertyName] = MergeRecursive(obj1[propertyName], obj2[propertyName]);
                             } else {
-                                obj1[lowerPropertName] = obj2[propertyName];
+                                obj1[propertyName] = obj2[propertyName];
                             }
 
                         } catch (e) {
                             // property in destination object not set; create it and set its value.
-                            obj1[lowerPropertName] = obj2[propertyName];
+                            obj1[propertyName] = obj2[propertyName];
                         }
                     }
                 }
