@@ -20,7 +20,6 @@
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-
             routes.MapRoute(
                 "CultureDefault",
                 "{" + CultureBasedActionAttribute.LanguageUrlParameter + "}-{" + 

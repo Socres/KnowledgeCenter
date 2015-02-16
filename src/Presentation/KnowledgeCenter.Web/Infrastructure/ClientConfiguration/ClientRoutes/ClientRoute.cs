@@ -1,6 +1,8 @@
 ﻿namespace KnowledgeCenter.Web.Infrastructure.ClientConfiguration.ClientRoutes
 {
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Linq;
 
     /// <summary>
     /// Information for client side routing.
@@ -13,6 +15,7 @@
         public ClientRoute()
         {
             ChildRoutes = new List<ClientRoute>();
+            Parameters = new Collection<string>();
         }
 
         /// <summary>
@@ -21,11 +24,19 @@
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or sets the params a client can supply in the url.
+        /// </summary>
+        public ICollection<string> Parameters { get; set; }
+
+        /// <summary>
         /// Gets or sets the Url.
         /// </summary>
         public string Url
         {
-            get { return "/" + Name; }
+            get
+            {
+                return Parameters.Aggregate("/" + Name, (current, parameter) => current + ("/:" + parameter));
+            }
         }
 
         /// <summary>
@@ -33,7 +44,7 @@
         /// </summary>
         public string Href
         {
-            get { return "#/" + Name; }
+            get { return "#/" + Name + (Parameters.Any() ? "/" : string.Empty); }
         }
 
         /// <summary>

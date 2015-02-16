@@ -41,7 +41,7 @@
     </Compile>
     <Compile Include="Interfaces\IKnowledgeBaseService.cs" />
     <Compile Include="Models\Base\DomainModelBase.cs" />
-    <Compile Include="Models\KnowledgeBaseFolder.cs" />
+    <Compile Include="Models\KnowledgeBaseItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

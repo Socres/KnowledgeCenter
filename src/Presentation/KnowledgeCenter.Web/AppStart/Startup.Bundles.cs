@@ -26,6 +26,7 @@
 
             var libScriptsFiles = GetLibScriptsFiles().ToList();
             AddDefaultBundles(bundles, libScriptsFiles);
+            AddMarkdownBundles(bundles);
 
             var appScriptsFiles = GetAppScriptsFiles().ToList();
             AddAngularBundles(bundles);
@@ -121,7 +122,21 @@
                 new StyleBundle("~/Content/cssmain")
                     .Include("~/Content/site.css")
                     .Include("~/Content/font-awesome.min.css")
-                    .Include("~/Content/toastr.min.css"));
+                    .Include("~/Content/toastr.min.css")
+                    .Include("~/Content/Highlight/default.css")
+                    .Include("~/Content/Highlight/vs.css"));
+        }
+
+        /// <summary>
+        /// Adds the markdown bundles.
+        /// </summary>
+        /// <param name="bundles">The bundles.</param>
+        private static void AddMarkdownBundles(BundleCollection bundles)
+        {
+            bundles.Add(
+                new ScriptBundle("~/bundles/jsmarkdown")
+                    .Include("~/Scripts/marked.js")
+                    .Include("~/Scripts/highlight/highlight.pack.js"));
         }
 
         /// <summary>

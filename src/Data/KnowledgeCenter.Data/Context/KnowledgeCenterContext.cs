@@ -9,8 +9,6 @@
     [DbConfigurationType(typeof(KnowledgeCenterContextConfiguration))]
     public class KnowledgeCenterContext : DbContext
     {
-        public DbSet<KbFolder> KbFolders { get; set; }
-
         public DbSet<KbItem> KbItems { get; set; }
 
         /// <summary>

@@ -15,7 +15,7 @@
         addRoutes($stateProvider, configData.navigationItems);
 
         function addRoutes($stateProvider: ng.ui.IStateProvider, navigationItems: any) {
-            angular.forEach(navigationItems,(value: any, key: any) => {
+            navigationItems.forEach((value: any) => {
                 $stateProvider.state(value.name, value);
             });
         };

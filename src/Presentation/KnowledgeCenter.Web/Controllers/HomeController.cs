@@ -6,17 +6,6 @@
 
     public class HomeController : Controller
     {
-        private readonly IClientConfigProvider _clientConfigProvider;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HomeController"/> class.
-        /// </summary>
-        /// <param name="clientConfigProvider">The client configuration provider.</param>
-        public HomeController(IClientConfigProvider clientConfigProvider)
-        {
-            _clientConfigProvider = clientConfigProvider;
-        }
-
         /// <summary>
         /// Returns the index view.
         /// </summary>

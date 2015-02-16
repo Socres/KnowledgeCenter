@@ -1,5 +1,25 @@
 ﻿<section data-ng-controller="knowledgeBaseMain as vm">
+    <script type="text/ng-template" id="tree_item_renderer.html">
+        <span data-ng-click="vm.selectItem(data)">{{data.name}}</span>
+        <ul data-ng-if="data.isOpen">
+            <li data-ng-repeat="data in data.childItems"
+                data-ng-include="'tree_item_renderer.html'"></li>
+            </uldata-ng->
+    </script>
+
     <div class="row">
         <h2>Knowledge Base</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <ul>
+                <li data-ng-repeat="data in vm.items"
+                    data-ng-include="'tree_item_renderer.html'"></li>
+            </ul>
+        </div>
+        <div class="col-lg-9">
+            <h3>{{vm.selectedItem.name}}</h3>
+            <span data-ng-bind-html="vm.markdown"></span>
+        </div>
     </div>
 </section>

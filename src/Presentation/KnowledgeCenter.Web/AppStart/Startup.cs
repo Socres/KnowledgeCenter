@@ -21,16 +21,18 @@ namespace KnowledgeCenter.Web.AppStart
         /// <param name="app">The application.</param>
         public void Configuration(IAppBuilder app)
         {
-            var config = new HttpConfiguration(); 
+            var config = new HttpConfiguration();
 
             AreaRegistration.RegisterAllAreas();
 
             SetupBundles();
-            
+
             SetupGlobalMvcFilters(GlobalFilters.Filters);
-            
+
             SetupMvcRoutes(RouteTable.Routes);
             SetupWebApiRoutes(config);
+
+            SetupWebApiFormatters(config.Formatters);
 
             SetupIoC(app, config);
 

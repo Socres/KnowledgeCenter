@@ -8,42 +8,26 @@ namespace KnowledgeCenter.Data.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.KbFolders",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false, maxLength: 250),
-                        ParentFolderId = c.Int(),
-                        DomainId = c.Guid(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.KbFolders", t => t.ParentFolderId)
-                .Index(t => t.ParentFolderId);
-            
-            CreateTable(
                 "dbo.KbItems",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 250),
                         Markdown = c.String(nullable: false),
-                        KbFolderId = c.Int(nullable: false),
+                        ParentItemId = c.Int(),
                         DomainId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.KbFolders", t => t.KbFolderId)
-                .Index(t => t.KbFolderId);
+                .ForeignKey("dbo.KbItems", t => t.ParentItemId)
+                .Index(t => t.ParentItemId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.KbItems", "KbFolderId", "dbo.KbFolders");
-            DropForeignKey("dbo.KbFolders", "ParentFolderId", "dbo.KbFolders");
-            DropIndex("dbo.KbItems", new[] { "KbFolderId" });
-            DropIndex("dbo.KbFolders", new[] { "ParentFolderId" });
+            DropForeignKey("dbo.KbItems", "ParentItemId", "dbo.KbItems");
+            DropIndex("dbo.KbItems", new[] { "ParentItemId" });
             DropTable("dbo.KbItems");
-            DropTable("dbo.KbFolders");
         }
     }
 }

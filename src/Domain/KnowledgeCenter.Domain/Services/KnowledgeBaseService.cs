@@ -1,5 +1,6 @@
 ﻿namespace KnowledgeCenter.Domain.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using KnowledgeCenter.Data.Core.Interfaces;
@@ -20,17 +21,44 @@
         }
 
         /// <summary>
-        /// Gets the folders.
+        /// Gets the items.
         /// </summary>
         /// <param name="parentId"></param>
         /// <returns></returns>
-        public IEnumerable<KnowledgeBaseFolder> GetFolders(int? parentId)
+        public IEnumerable<KnowledgeBaseItem> GetItems(Guid? parentId)
         {
-            var kbFolders = _unitOfWork.KbFolders.Fetch(
-                f => f.ParentFolderId == parentId, 
-                f => f.ChildFolders);
+            var kbItems = _unitOfWork.KbItems.Fetch(
+                f => f.Name,
+                f => f.Parent.DomainId == parentId);
 
-            return kbFolders.Select(KnowledgeBaseFolder.FromKbFolder).ToList();
+            return kbItems.Select(KnowledgeBaseItem.FromKbItem).ToList();
+        }
+
+        /// <summary>
+        /// Gets the tree from the child to the root parent, including all childs of each parent
+        /// </summary>
+        /// <param name="childId">The child identifier.</param>
+        /// <returns></returns>
+        public KnowledgeBaseItem GetRootTreeFromChild(Guid childId)
+        {
+            var item = _unitOfWork.KbItems.Fetch(i => i.DomainId == childId).Single();
+            // Get all parents
+            while (item.ParentItemId.HasValue)
+            {
+                item = _unitOfWork.KbItems.GetById(item.ParentItemId.Value);
+                if (item.ParentItemId.HasValue)
+                {
+                    // Get all items that share this parent
+                    var parentItemId = item.ParentItemId.Value;
+                    var childs = _unitOfWork.KbItems.Fetch(
+                        i => i.Name,
+                        i => i.ParentItemId == parentItemId)
+                        .ToList();
+                    item = childs.First();
+                }
+            }
+
+            return KnowledgeBaseItem.FromKbItem(item);
         }
     }
 }

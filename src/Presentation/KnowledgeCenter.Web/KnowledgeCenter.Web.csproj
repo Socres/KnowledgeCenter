@@ -133,12 +133,42 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\Highlight\classref.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Highlight\arta.css" />
+    <Content Include="Content\Highlight\ascetic.css" />
+    <Content Include="Content\Highlight\brown_paper.css" />
+    <Content Include="Content\Highlight\brown_papersq.png" />
+    <Content Include="Content\Highlight\dark.css" />
+    <Content Include="Content\Highlight\default.css" />
+    <Content Include="Content\Highlight\far.css" />
+    <Content Include="Content\Highlight\github.css" />
+    <Content Include="Content\Highlight\googlecode.css" />
+    <Content Include="Content\Highlight\idea.css" />
+    <Content Include="Content\Highlight\ir_black.css" />
+    <Content Include="Content\Highlight\magula.css" />
+    <Content Include="Content\Highlight\monokai.css" />
+    <Content Include="Content\Highlight\pojoaque.css" />
+    <Content Include="Content\Highlight\pojoaque.jpg" />
+    <Content Include="Content\Highlight\rainbow.css" />
+    <Content Include="Content\Highlight\school_book.css" />
+    <Content Include="Content\Highlight\school_book.png" />
+    <Content Include="Content\Highlight\solarized_dark.css" />
+    <Content Include="Content\Highlight\solarized_light.css" />
+    <Content Include="Content\Highlight\sunburst.css" />
+    <Content Include="Content\Highlight\tomorrow-night-blue.css" />
+    <Content Include="Content\Highlight\tomorrow-night-bright.css" />
+    <Content Include="Content\Highlight\tomorrow-night-eighties.css" />
+    <Content Include="Content\Highlight\tomorrow-night.css" />
+    <Content Include="Content\Highlight\tomorrow.css" />
+    <Content Include="Content\Highlight\vs.css" />
+    <Content Include="Content\Highlight\xcode.css" />
+    <Content Include="Content\Highlight\zenburn.css" />
     <Content Include="Content\Site.css.map">
       <DependentUpon>Site.css</DependentUpon>
     </Content>
@@ -152,6 +182,9 @@
     <Content Include="App\knowledgeBase\views\Web.config" />
     <Content Include="App\forum\views\main.cshtml" />
     <Content Include="App\forum\views\Web.config" />
+    <Content Include="App_Code\Highlight\README.ru.md" />
+    <Content Include="App_Code\Highlight\README.md" />
+    <Content Include="App_Code\Highlight\LICENSE" />
     <None Include="Content\Site.less" />
     <Content Include="Content\Site.css">
       <DependentUpon>Site.less</DependentUpon>
@@ -220,6 +253,7 @@
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Content Include="Scripts\Highlight\highlight.pack.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-et.js" />
@@ -969,6 +1003,7 @@
     <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
     <Content Include="Scripts\json2.js" />
     <Content Include="Scripts\json2.min.js" />
+    <Content Include="Scripts\marked.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
@@ -1002,11 +1037,13 @@
     <Compile Include="AppStart\Startup.Bundles.cs" />
     <Compile Include="AppStart\Startup.cs" />
     <Compile Include="AppStart\Startup.DependencyInjection.cs" />
+    <Compile Include="AppStart\Startup.Formatters.cs" />
     <Compile Include="AppStart\Startup.Filters.cs" />
     <Compile Include="AppStart\Startup.Routes.cs" />
     <Compile Include="AppStart\Startup.System.cs" />
+    <Content Include="App_Code\Highlight\Highlight.cs" />
     <Compile Include="Controllers\AngularController.cs" />
-    <Compile Include="Controllers\Api\KnowledgeBaseFolderController.cs" />
+    <Compile Include="Controllers\Api\KnowledgeBaseItemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\UrlHelperExtension.cs" />
     <Compile Include="Infrastructure\ClientConfiguration\ClientConfig.cs" />
@@ -1084,6 +1121,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="App\app.ts" />
+    <TypeScriptCompile Include="App\dataServices\baseDataservice.ts" />
     <TypeScriptCompile Include="App\infrastructure\common\common.ts" />
     <TypeScriptCompile Include="App\infrastructure\common\interfaces.ts" />
     <TypeScriptCompile Include="App\infrastructure\common\logger.ts" />
@@ -1092,6 +1130,8 @@
     <TypeScriptCompile Include="App\infrastructure\config.ts" />
     <TypeScriptCompile Include="App\forum\controllers\main.ts" />
     <TypeScriptCompile Include="App\knowledgeBase\controllers\main.ts" />
+    <TypeScriptCompile Include="App\dataServices\knowledgeBaseDataService.ts" />
+    <TypeScriptCompile Include="App\services\markdownService.ts" />
     <TypeScriptCompile Include="App\services\routerMediator.ts" />
     <TypeScriptCompile Include="App\shell\controllers\nav.ts" />
     <TypeScriptCompile Include="App\shell\controllers\noAccess.ts" />
@@ -1106,6 +1146,7 @@
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\marked\marked.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\toastr\toastr.d.ts" />
   </ItemGroup>
   <PropertyGroup>

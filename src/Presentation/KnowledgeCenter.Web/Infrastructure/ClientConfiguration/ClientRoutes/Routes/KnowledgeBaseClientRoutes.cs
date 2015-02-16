@@ -25,14 +25,16 @@
             {
                 var routes = new List<ClientRoute>();
 
-                routes.Add(new ClientRoute
+                var mainRoute = new ClientRoute
                 {
                     Name = "KnowledgeBase",
                     TemplateUrl = "knowledgeBase/main",
                     Visible = true,
                     Title = Resources.ClientRoute_KnowledgeBase_Caption,
                     TitleIconCss = @"fa fa-lightbulb-o"
-                });
+                };
+                mainRoute.Parameters.Add("domainId");
+                routes.Add(mainRoute);
 
                 return routes;
             }

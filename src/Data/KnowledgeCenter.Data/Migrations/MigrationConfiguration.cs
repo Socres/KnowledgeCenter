@@ -1,8 +1,11 @@
+// ReSharper disable PossibleNullReferenceException
 namespace KnowledgeCenter.Data.Migrations
 {
     using System;
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
+    using System.Linq;
+    using System.Text;
     using KnowledgeCenter.Data.Context;
     using KnowledgeCenter.Data.Core.Models;
 
@@ -16,48 +19,46 @@ namespace KnowledgeCenter.Data.Migrations
 
         protected override void Seed(KnowledgeCenterContext context)
         {
-            var folders = new List<KbFolder>
+            var items = new List<KbItem>();
+            var random = new Random();
+            for (var i = 0; i < random.Next(3, 10); i++)
             {
-                new KbFolder
-                {
-                    DomainId = Guid.NewGuid(), 
-                    Name = "Folder 1"
-                },
-                new KbFolder
-                {
-                    DomainId = Guid.NewGuid(), 
-                    Name = "Folder 2"
-                }
+                AddItems(random, items, null);
+            }
+            context.KbItems.AddOrUpdate(f => f.Name,
+                items.ToArray());
+        }
+
+        private static void AddItems(Random random, ICollection<KbItem> items, KbItem parent)
+        {
+            var name = 
+                parent == null
+                ? ("Folder " + (items.Count + 1))
+                : parent.Name + "." + (items.Count + 1);
+            var sb = new StringBuilder();
+            sb.AppendLine("```csharp");
+            sb.AppendLine("public class " + name.Replace(" ", string.Empty).Replace(".", "_"));
+            sb.AppendLine("{");
+            sb.AppendLine(@"    Console.WriteLine(""This is a test!"");");
+            sb.AppendLine("}");
+            sb.AppendLine("```");
+
+            var item = new KbItem
+            {
+                DomainId = Guid.NewGuid(),
+                Name = name,
+                Markdown = "##" + name + Environment.NewLine + Environment.NewLine + sb
             };
-            folders[0].ChildFolders.Add(
-                new KbFolder
-                {
-                    DomainId = Guid.NewGuid(),
-                    Name = "Folder 1.1"
-                });
-            (folders[0].ChildFolders as List<KbFolder>)[0].ChildFolders.Add(
-                new KbFolder
-                {
-                    DomainId = Guid.NewGuid(),
-                    Name = "Folder 1.1.1"
-                });
+            items.Add(item);
 
-            folders[1].ChildFolders.Add(
-                new KbFolder
+            // Nasty....if we're 4 levels deep....
+            if (name.Count(x => x == '.') <= 3)
+            {
+                for (var i = 0; i < random.Next(3, 10); i++)
                 {
-                    DomainId = Guid.NewGuid(),
-                    Name = "Folder 2.1"
-                });
-            (folders[1].ChildFolders as List<KbFolder>)[0].KbItems.Add(
-                new KbItem
-                {
-                    DomainId = Guid.NewGuid(),
-                    Name = "Item 2.1 => 1",
-                    Markdown = "Markdown item test"
-                });
-
-            context.KbFolders.AddOrUpdate(f => f.Name,
-                folders.ToArray());
+                    AddItems(random, item.ChildItems, item);
+                }
+            }
         }
     }
 }

@@ -16,7 +16,7 @@
         where TEntity : IdentityModelBase
     {
         private readonly DbContext _context;
-        private readonly IDbSet<TEntity> _dbSet;
+        protected readonly DbSet<TEntity> DbSet;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Repository{TEntity}"/> class.
@@ -25,7 +25,7 @@
         public Repository(DbContext context)
         {
             _context = context;
-            _dbSet = _context.Set<TEntity>();
+            DbSet = _context.Set<TEntity>();
         }
 
         /// <summary>
@@ -152,7 +152,7 @@
         /// <param name="entity">The entity.</param>
         public virtual void Add(TEntity entity)
         {
-            _dbSet.Add(entity);
+            DbSet.Add(entity);
         }
 
         /// <summary>
@@ -161,7 +161,7 @@
         /// <param name="entity">The entity.</param>
         public virtual void Update(TEntity entity)
         {
-            _dbSet.Attach(entity);
+            DbSet.Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
         }
 
@@ -182,7 +182,7 @@
         private IQueryable<TEntity> GetQuery<TProperty>(Expression<Func<TEntity, bool>> predicate, Expression<Func<TEntity, TProperty>> includeProperty)
         {
             // Add the included properties
-            var query = _dbSet.AsQueryable();
+            var query = DbSet.AsQueryable();
             if (includeProperty != null)
             {
                 query = query.Include(includeProperty);
@@ -202,9 +202,9 @@
         {
             if (_context.Entry(entity).State == EntityState.Detached)
             {
-                _dbSet.Attach(entity);
+                DbSet.Attach(entity);
             }
-            _dbSet.Remove(entity);
+            DbSet.Remove(entity);
         }
     }
 }

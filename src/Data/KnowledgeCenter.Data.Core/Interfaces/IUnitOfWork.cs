@@ -8,11 +8,6 @@
     public interface IUnitOfWork
     {
         /// <summary>
-        /// Gets the KnowledgeBase Folders.
-        /// </summary>
-        IRepository<KbFolder> KbFolders { get; }
-
-        /// <summary>
         /// Gets the KnowledgeBase Items.
         /// </summary>
         IRepository<KbItem> KbItems { get; }

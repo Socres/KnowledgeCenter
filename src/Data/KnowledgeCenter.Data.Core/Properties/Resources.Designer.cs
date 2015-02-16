@@ -61,15 +61,6 @@ namespace KnowledgeCenter.Data.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
-        /// </summary>
-        public static string KbFolder_Name_DisplayLabel {
-            get {
-                return ResourceManager.GetString("KbFolder_Name_DisplayLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Markdown.
         /// </summary>
         public static string KbItem_Markdown_DisplayLabel {

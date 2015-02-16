@@ -3,9 +3,9 @@
     using System;
     using KnowledgeCenter.Data.Context;
     using KnowledgeCenter.Data.Core.Interfaces;
-    using KnowledgeCenter.Data.Repositories;
     using KnowledgeCenter.Data.Core.Models;
     using KnowledgeCenter.Data.Core.Models.Base;
+    using KnowledgeCenter.Data.Repositories;
 
     /// <summary>
     /// Implements the Unit of Work pattern.
@@ -13,16 +13,7 @@
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private KnowledgeCenterContext Context { get; set; }
-        private IRepository<KbFolder> _kbFolders;
         private IRepository<KbItem> _kbItems;
-
-        /// <summary>
-        /// Gets the KnowledgeBase Folders.
-        /// </summary>
-        public IRepository<KbFolder> KbFolders
-        {
-            get { return GetOrCreateRepository(ref _kbFolders); }
-        }
 
         /// <summary>
         /// Gets the KnowledgeBase Items.
